@@ -1,0 +1,15 @@
+* {
+	font-family: 'Arsenal', sans-serif;
+	margin: 0px;
+	padding: 0px;
+ }
+ .list{
+ 	list-style: none;
+ }
+ .wathDo, .places{
+ 	background-position: center;
+ 	background-size: cover;	
+ 	border: 2px solid #fff !important;
+ }
+.wathDo {  }
+.places { background-image: url(../IMG/places.JPG); }

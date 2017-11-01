@@ -1,0 +1,241 @@
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Roboto', sans-serif;	
+	
+}
+.haAuto{
+	height: auto !important;
+	transition: all .3s !important;
+}
+ul{
+	transition: all .3s !important;
+}
+
+.toggleMenu{
+    position: absolute;
+    right: -38px;
+    background: #31383e;
+    padding: 10px 13px;
+    color: #fff;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+.imgProfile{
+	width: 60px;
+	height: 60px;
+	background: red;
+	border-radius: 50px;
+	background-position: center;
+	background-size: cover;
+	border: 1px solid #ccc;
+}
+div.pointG{
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-right: 5px;
+
+	border-radius: 50px;
+	background: green;
+}
+#menu{
+	width: 250px;
+	background: #31383e;
+	display: block;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;	
+	overflow: hidden;
+	transition: all .3s;
+}
+.w0{
+	width: 0px !important;
+
+}
+input[type=search] {
+	padding: 3px;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+}
+.left0{
+	left: 0px !important;
+}
+
+#menu li a{
+	display: block;
+	padding: 7px 7px 7px 15px;
+	box-sizing: border-box;
+	border-bottom: .5px solid rgba(255, 255, 255, .2);
+	text-decoration: none;
+	color: #f9f9f9;
+	font-weight: 500;
+	font-size: 14px;
+	transition: all .3s;
+}
+nav.contentMenu{
+	background: red !important;
+
+	width: 250px;
+	position: relative;
+	transition: all .3s;
+
+}
+#menu li a:hover{
+	color: #b01c2e;
+}
+.hover{
+	color: #b01c2e !important;
+}
+.right{
+	float: right;
+}
+.iconListMenu{
+	margin-right: 8px;
+}
+.menuDisplay{
+	height: auto !important;
+	overflow: visible;
+}
+ul.submenu{
+	height: 0px;
+	transition: all .3s;
+	overflow: hidden;
+	transition: all .3s;
+}
+ul.submenu li a{
+	padding: 8px 25px !important;
+	background: rgba(0,0,0,.1);
+	font-size: 12px !important;
+	border-bottom: .5px solid red;
+}
+.panelContainer{
+	margin-left: 250px;
+	padding: 35px 20px;
+	transition: all 0.3s;
+}
+.ml0{
+	margin-left: 0px !important;
+}
+.containerTable{
+	width: 100%;
+    border: 2px solid #eee;
+    padding: 10px;
+    border-radius: 3px;
+    background: #fff;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.title{
+	font-size: 24px;
+    font-weight: 600;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0px;
+    padding: 5px 0px;
+    color: #33323a;
+}
+.containerTable table thead tr td{
+	border-bottom: 2px solid #ccc;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 600;
+	height: 40px;
+}
+.containerTable table tbody tr th{
+	border-bottom: 1px solid #f6f6f6;
+	font-size: 14px;
+	text-align: center;
+	height: 30px;
+	font-weight: 500;
+}
+table tfoot tr th{
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	height: 40px;
+}
+table{
+	width: 100%;
+	width: 100%;
+    border-
+    cing: 0px;
+}
+.buttonAdd{
+	padding: 5px 8px;
+    border: none;
+    background: #ffb900;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+}
+.buttonDelete{
+	padding: 5px 8px;
+    border: none;
+    background: #d32f2f;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+}
+.buttonAdd:hover{
+	background: #d69b00;	
+}
+#bgBlack{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 10;
+	display: none;
+}
+.closeModal{
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	color: #fff;
+	z-index: 12;
+	cursor: pointer;
+	padding: 8px 10px;
+	background: #b01c2e;
+	border-radius: 3px;
+}
+.containerForm{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #fff;
+    z-index: 22;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px; 
+    background: #f6f6f6;
+    box-shadow: 3px 3px 20px #434141;
+}
+.titileModal{
+	margin: 0px;
+    padding: 10px 0px;
+    text-align: center;
+    border-bottom: 2px solid #3f3e43;
+    margin-bottom: 8px;
+    font-size: 25px;
+    font-weight: 600;
+    /* text-transform: uppercase; */
+    color: #3f3e43;
+
+}
+.inputStyle, .textarea{
+	width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    outline: none;
+    padding: 1px 9px;
+    color: #000 !important;
+    border: 1px solid #adb1b3;
+}
