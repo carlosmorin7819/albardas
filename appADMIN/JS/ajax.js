@@ -23,7 +23,16 @@ function login_validate() {
     });
 }
 
-    
+function editUser(obj){
+    event.preventDefault();
+    var id = $(obj).attr("href");
+  
+    $.get(id, function(data, status){
+        $("div.formEdit").html(data);
+        $("#bgBlack2").fadeIn('fast');
+
+    });
+}
 $("a.add").click(function(){
     event.preventDefault();
     var rute = $(this).attr('href');
@@ -51,7 +60,9 @@ function save_user(){
         processData: false,
         success: function(datos)
         {
-          alert("Usuario Guardado");
+          swal("El usuario ha sido guardado con exito ", {
+                  icon: "success",
+                });
           $("#formUser")[0].reset();
           $("div.containerTable").empty();
           $("div.containerTable").html(datos);
@@ -60,39 +71,41 @@ function save_user(){
         }
     });
 }
-    function deleteUser(obj) {
-        event.preventDefault();
-            swal({
-              title: "Eliminar usuario",
-              text: "Este seguro de eliminar este usuario",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-            })
-            .then((willDelete) => {
-              if (willDelete) {
-                var id = $(obj).attr("href");
-      
-                    $.get(id, function(data, status){
-                    swal("El usuario ha sido eliminado con éxito ", {
-                      icon: "success",
-                    });
+   
+function deleteUser(obj) {
+    event.preventDefault();
+    swal({
+      title: "Eliminar usuario",
+      text: "Este seguro de eliminar este usuario",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+            var id = $(obj).attr("href");
 
-                    $("div.containerTable").empty();
-                    $("div.containerTable").html(data);
-                    $('#tableUsers').DataTable();
-
-                });
-                
-              } else {
-                swal("Operación cancelada");
-              }
+            $.get(id, function(data, status){
+            swal("El usuario ha sido eliminado con éxito ", {
+              icon: "success",
             });
 
+            $("div.containerTable").empty();
+            $("div.containerTable").html(data);
+            $('#tableUsers').DataTable();
+
+        });
         
-         //var sel = obj.options[obj.selectedIndex].value;
-        
-    }
+      } else {
+        swal("Operación cancelada");
+      }
+    });
+}
+
+function updateUser(){
+    event.preventDefault(); 
+    alert("update user");
+}
 
 /**$("a.delete").click(function(){
     event.preventDefault();

@@ -184,7 +184,7 @@ table{
 .buttonAdd:hover{
 	background: #d69b00;	
 }
-#bgBlack{
+#bgBlack, #bgBlack2{
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -205,7 +205,7 @@ table{
 	background: #b01c2e;
 	border-radius: 3px;
 }
-.containerForm{
+.containerForm, .modalUpdate{
 	position: absolute;
     top: 50%;
     left: 50%;

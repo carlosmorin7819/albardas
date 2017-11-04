@@ -43,6 +43,19 @@
 	 			Panel de usuarios
 	 		</a>
 	 	</li>
+	 	<li>
+			<a href="panel.php?template=4" class="<?php if($_GET['template'] == 4){ echo 'hover'; }?>">
+				<!-- iconListMenu -->
+				<i class="fa fa-list-alt iconListMenu" aria-hidden="true"></i>
+	 			Catalogo de clientes
+	 		</a>
+	 	</li>
+	 	<li>
+			<a href="panel.php?template=3">
+			<i class="fa fa-list-alt iconListMenu" aria-hidden="true"></i>
+				Catalogo de proveedores
+			</a>
+		</li>
 	 	<li class="displaySubmenu">
 			<a href="" class="noEvent">
 				<!-- iconListMenu -->
@@ -63,12 +76,7 @@
 		 				Vales de gasolina
 	 				</a>
 	 			</li>
-	 			<li>
-	 				<a href="panel.php?template=3">
-						<i class="fa fa-list-alt iconListMenu" aria-hidden="true"></i>
-		 				Catalogo de proveedores
-	 				</a>
-	 			</li>
+	 			
 	 		</ul>
 	 	</li>
 

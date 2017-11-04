@@ -30,11 +30,20 @@ function modalBed(){
 	$("#bgBlack").fadeIn('fast');
 	$(".containerForm").fadeIn('fast');
 }
-function closeModal(){
-	$("#bgBlack").fadeOut('fast');
-	$(".containerForm").fadeOut('fast');
-}
+
 function modalUser(){
-	$("#bgBlack").fadeIn('fast');
+	$("#bgBlack").fadeIn(50);
 	$(".containerForm").fadeIn('fast');
+}
+
+
+function closeModal2(){
+	
+	$("#bgBlack2").fadeOut('fast');
+	$(".modalUpdate").fadeOut('fast');
+}
+function closeModal(){
+
+	$("#bgBlack").fadeOut('fast');
+	$(".containerForm ").fadeOut('fast');
 }

@@ -71,12 +71,14 @@
 	$table .= '<thead>	
 					<tr>
 						<td>ID</td>
+						<td>Imagen</td>
 						<td>Nombre</td>
-						<td>Mail</td>
-						<td>Tipo Usario</td>
-						<td>Genero</td>
+						<td>Apellidos</td>
+						<td>Correo</td>
 						<td>Telefono</td>
-						<td>Editar</td>
+						<td>Genero</td>
+						<td>Usuario</td>
+						<td>Edit</td>
 						<td>Eliminar</td>
 					</tr>
 				</thead>';
@@ -84,14 +86,16 @@
 			while($elemento = mysqli_fetch_array($query_users)){ 
 				$table .= '<tr>
 				<th>'.$elemento['id'].'</th>
+				<th><img src="IMG/'.$elemento['img_profile'].'" alt="" height="40"></th>
 				<th>'.$elemento['name'].'</th>
+				<th>'.$elemento['last_name'].'</th>
 				<th>'.$elemento['email'].'</th>
-				<th>'.$elemento['type_user'].'</th>
-				<th>'.$elemento['gender'].'</th>
 				<th>'.$elemento['phone'].'</th>
+				<th>'.$elemento['gender'].'</th>
+				<th>'.$elemento['type_user'].'</th>
 			
 				<th>
-					<a href="" class="buttonAdd">
+					<a href="" class="buttonAdd" onclick="editUser">
 						<i class="fa fa-pencil" aria-hidden="true"></i>
 					</a>
 				</th>
