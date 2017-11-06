@@ -49,8 +49,8 @@
 				<th>'.$elemento['type_user'].'</th>
 			
 				<th>
-					<a href="" class="buttonAdd">
-						<i class="fa fa-pencil" aria-hidden="true"></i>
+					<a href="CLASS/editUser.php?id='.$elemento['id'].'" onclick="editUser(this);"	 class="buttonAdd" >
+							<i class="fa fa-pencil" aria-hidden="true"></i>
 					</a>
 				</th>
 				

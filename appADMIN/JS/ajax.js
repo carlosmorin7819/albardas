@@ -60,9 +60,8 @@ function save_user(){
         processData: false,
         success: function(datos)
         {
-          swal("El usuario ha sido guardado con exito ", {
-                  icon: "success",
-                });
+          closeModal();
+          swal("El usuario ha sido guardado con exito ", { icon: "success",});
           $("#formUser")[0].reset();
           $("div.containerTable").empty();
           $("div.containerTable").html(datos);
@@ -103,8 +102,29 @@ function deleteUser(obj) {
 }
 
 function updateUser(){
-    event.preventDefault(); 
-    alert("update user");
+    event.preventDefault();
+    var formData = new FormData($("#formUpdateUser")[0]);
+    var ruta = "CLASS/updateUser.php";
+    $.ajax({
+        url: ruta,
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(datos)
+        {
+          closeModal2();
+          swal("El usuario ha sido Actualizado con exito ", {
+            icon: "success",
+          });
+          
+          $("#formUpdateUser")[0].reset();
+          $("div.containerTable").empty();
+          $("div.containerTable").html(datos);
+          $('#tableUsers').DataTable();
+         
+        }
+    });
 }
 
 /**$("a.delete").click(function(){

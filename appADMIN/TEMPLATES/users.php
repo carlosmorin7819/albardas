@@ -24,19 +24,17 @@
 	
 ?>
 <div class="panelContainer">
-	<h1 class="title">Usuarios</h1>
-
+	<h1 class="title">Administracion de usuarios</h1>
+	<br>
 		<?php 
 		//var_dump($_SESSION['user']);
 		if ($user_master): ?>
-			<span class="buttonAdd" onclick="modalUser();">
+			<span class="buttonAdd " onclick="modalUser();">
 				<i class="fa fa-user-plus" aria-hidden="true"></i>
 				Nuevo usuario
 			</span>
 		<?php endif ?>
-	
-
-	<br><br>	
+	<br><br>
 	<div class="containerTable">
 		<table width="100%" border="0" id="tableUsers">
 			<thead>	
@@ -95,7 +93,7 @@
 		<div class="row"><!--Nombre-->
 			<div class="col-lg-12">	
 				<label for="name" class="s12">Nombres:</label>
-				<input type="text" name="name" id="name" placeholder="Nombre (s)" class="inputStyle">		
+				<input type="text" name="name" id="name" placeholder="Nombre (s)" class="inputStyle" required="">		
 			</div>
 		</div>
 
@@ -103,14 +101,14 @@
 		<div class="row"><!--Apellidos-->
 			<div class="col-lg-12">	
 				<label for="last_name" class="s12">Apellidos:</label>
-				<input type="text" name="last_name" id="last_name" placeholder="Apellidos" class="inputStyle">		
+				<input type="text" name="last_name" id="last_name" placeholder="Apellidos" class="inputStyle"  required="">		
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="row"><!--Email-->
 			<div class="col-lg-12">	
 				<label for="mail" class="s12">Correo electronico:</label>
-				<input type="text" name="mail" id="mail" placeholder="Correo electronico" class="inputStyle">
+				<input type="text" name="mail" id="mail" placeholder="Correo electronico" class="inputStyle"  required="">
 			</div>
 		</div>
 		
@@ -118,25 +116,25 @@
 		<div class="row"><!--Phone-->
 			<div class="col-lg-12 col-md-12">	
 				<label for="phone" class="s12">Telefono:</label>
-				<input type="number" name="phone" id="phone" placeholder="555-555-55-55" class="inputStyle" maxlength="12">		
+				<input type="number" name="phone" id="phone" placeholder="555-555-55-55" class="inputStyle" maxlength="12"  required="" minlength="10">		
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="row"><!--Img perfil-->
 			<div class="col-lg-12">	
 				<label for="imagen" class="s12">Selecciona imagen de perfil:</label>
-				<input type="file" name="imagen" id="imagen">
+				<input type="file" name="imagen" id="imagen"  required="">
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="row"><!--Contraseña-->
 			<div class="col-lg-6">	
 				<label for="pass" class="s12">Contraseña:</label>
-				<input type="password" name="pass" id="pass" placeholder="Contraseña" class="inputStyle">		
+				<input type="password" name="pass" id="pass" placeholder="Contraseña" class="inputStyle"  required=""> 		
 			</div>
 			<div class="col-lg-6">	
 				<label for="r_pass" class="s12">Confirma contraseña:</label>
-				<input type="password" name="r_pass" id="r_pass" placeholder="Contraseña" class="inputStyle">		
+				<input type="password" name="r_pass" id="r_pass" placeholder="Contraseña" class="inputStyle"  required="">		
 			</div>
 		</div>
 		<div class="clear"></div>
