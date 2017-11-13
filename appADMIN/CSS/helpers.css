@@ -133,6 +133,7 @@
     margin: 0 auto;
     padding: 6px 0;
 }
+
 .buttonOrange{
   width: 100%;
     padding: 7px;
@@ -144,18 +145,18 @@
     border:none;
 }
 .buttonStyle{
-    padding: 10px 10px;
-    border-radius: 4px;
-    border: none;
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-    color: #fff;
-    cursor: pointer;
-    border-bottom: 4px solid rgba(0,0,0,.3);
-    border-left: 2px solid rgba(0,0,0,.3);
-    outline: none;
-    transition: all .3s;
+    padding: 10px 10px !important;
+    border-radius: 4px !important;
+    border: none !important;
+    display: block !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    border-bottom: 4px solid rgba(0,0,0,.3) !important;
+    border-left: 2px solid rgba(0,0,0,.3) !important;
+    outline: none !important;
+    transition: all .3s !important;
 }
 .imgCenter{
   background-origin: content-box !important;
@@ -1922,7 +1923,7 @@ pre code {
   left: auto;
 }
 .col-xs-offset-12 {
-  margin-left: 100%;
+  margin-left: 100%  
 }
 .col-xs-offset-11 {
   margin-left: 91.66666667%;

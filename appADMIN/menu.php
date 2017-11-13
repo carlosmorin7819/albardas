@@ -44,10 +44,10 @@
 	 		</a>
 	 	</li>
 	 	<li>
-			<a href="panel.php?template=4" class="<?php if($_GET['template'] == 4){ echo 'hover'; }?>">
+			<a href="panel.php?template=2" class="<?php if($_GET['template'] == 2){ echo 'hover'; }?>">
 				<!-- iconListMenu -->
-				<i class="fa fa-list-alt iconListMenu" aria-hidden="true"></i>
-	 			Catalogo de clientes
+				<i class="fa fa-archive iconListMenu" aria-hidden="true"></i>
+	 			Empaque
 	 		</a>
 	 	</li>
 	 	<li>

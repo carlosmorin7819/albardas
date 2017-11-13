@@ -10,6 +10,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<link rel="shortcut icon" href="IMG/icon.ico" type="image/x-icon"/>
+
+	<link rel="stylesheet" href="CSS/main.css">
+	<link rel="stylesheet" href="CSS/normalize.css">
+	<link rel="stylesheet" href="CSS/jquerysteps.css">
 	<?php include 'constants.php'; ?>
 	<?php include 'menu.php'; ?>
 </head>

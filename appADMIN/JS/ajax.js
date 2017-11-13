@@ -1,3 +1,5 @@
+
+/** AJAX VALIDAR USUARIO **/
 function login_validate() {
     event.preventDefault()
     var formData = new FormData($("#formLogin")[0]);
@@ -23,54 +25,39 @@ function login_validate() {
     });
 }
 
-function editUser(obj){
-    event.preventDefault();
-    var id = $(obj).attr("href");
-  
-    $.get(id, function(data, status){
-        $("div.formEdit").html(data);
-        $("#bgBlack2").fadeIn('fast');
-
-    });
-}
-$("a.add").click(function(){
-    event.preventDefault();
-    var rute = $(this).attr('href');
-    $.get(rute, function(data, status){
-        $("div.response").html(data);
-    });
-});
-
-$("button.view").click(function(){
-    event.preventDefault();
-    var rute = 'CLASS/cotizar.php';
-    $.get(rute, function(data, status){
-        $("div.response").html(data);
-    });
-});
+/** AJAX GUARDAR USUARIO**/
 function save_user(){
     event.preventDefault();
-    var formData = new FormData($("#formUser")[0]);
-    var ruta = "CLASS/class.php";
-    $.ajax({
-        url: ruta,
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(datos)
-        {
-          closeModal();
-          swal("El usuario ha sido guardado con exito ", { icon: "success",});
-          $("#formUser")[0].reset();
-          $("div.containerTable").empty();
-          $("div.containerTable").html(datos);
-           $('#tableUsers').DataTable();
-         
-        }
-    });
+    var pass = $("input#pass").val();
+    var r_pass = $("input#r_pass").val();
+
+    if (pass == r_pass) {
+      var formData = new FormData($("#formUser")[0]);
+      var ruta = "CLASS/class.php";
+      $.ajax({
+          url: ruta,
+          type: "POST",
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function(datos)
+          {
+            closeModal();
+            swal("El usuario ha sido guardado con exito ", { icon: "success",});
+            $("#formUser")[0].reset();
+            $("div.containerTable").empty();
+            $("div.containerTable").html(datos);
+            $('#tableUsers').DataTable();
+           
+          }
+      });
+    }else{
+      $("input#pass").addClass("passNoValid");
+      $("input#r_pass").addClass("passNoValid");
+    }
 }
-   
+ 
+/** AJAX ELIMINAR USUARIO **/  
 function deleteUser(obj) {
     event.preventDefault();
     swal({
@@ -101,6 +88,7 @@ function deleteUser(obj) {
     });
 }
 
+/** AJAX EDITAR USUARIO FINAL**/
 function updateUser(){
     event.preventDefault();
     var formData = new FormData($("#formUpdateUser")[0]);
@@ -127,35 +115,111 @@ function updateUser(){
     });
 }
 
-/**$("a.delete").click(function(){
+/** AJAX EDITAR USUARIO **/
+function editUser(obj){
     event.preventDefault();
-
-   var id = $(this).attr('href');
-   alert(id);
-   
+    var id = $(obj).attr("href");
   
     $.get(id, function(data, status){
-        alert(status);
-       alert("Usuario eliminado");
-
-        $("div.containerTable").empty();
-        $("div.containerTable").html(data);
-        $('#tableUsers').DataTable();
+        $("div.formEdit").html(data);
+        $("#bgBlack2").fadeIn('fast');
 
     });
-});
-function ajaxPdf(){
-    var formData = new FormData($("#formGPfg")[0]);
-    var ruta = "CLASS/pdfC.php";
-    $.ajax({
-        url: ruta,
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(datos)
-        {
-            alert("listo");
-        }
-    });    
-}**/
+}
+
+
+function save_driver(){
+  event.preventDefault();
+  var formData = new FormData($("#formDriver")[0]);
+      var ruta = "CLASS/classDriver.php";
+      $.ajax({
+          url: ruta,
+          type: "POST",
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function(datos)
+          {
+            closeModal();
+            swal("El chofer ha sido guardado con exito ", { icon: "success",});
+            $("#formDriver")[0].reset();
+ 
+           
+          }
+      }); 
+}
+
+
+function save_tractor(){
+  event.preventDefault();
+  
+  var formData = new FormData($("#formTractor")[0]);
+      var ruta = "CLASS/classDriver.php";
+      $.ajax({
+          url: ruta,
+          type: "POST",
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function(datos)
+          {
+            closeModal();
+            swal("El tractor ha sido guardado con exito ", { icon: "success",});
+            $("#formTractor")[0].reset();
+ 
+           
+          }
+        }); 
+}
+
+function save_boxF_S(){
+  event.preventDefault();
+  var full_simple = $('input:radio.holis:checked').val();
+  
+  if (full_simple == "full")  {
+    alert("FULL");
+  }else if( full_simple == "simple"){
+    save_box();
+  }else{
+    alert("Espesifique tipo de caja");
+  }
+  //alert(full_simple);
+
+}
+function save_box(){
+  event.preventDefault();
+  var formData = new FormData($("form#formSencillo")[0]);
+  var ruta = "CLASS/classDriver.php";
+  $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(datos)
+      {
+        closeModal();
+        swal("La caja ha sido guardado con exito ", { icon: "success",});
+        $("form#formSencillo")[0].reset();
+      }
+  }); 
+}
+
+function save_boxFull(){
+  event.preventDefault();
+  var formData = new FormData($("form#formDoble")[0]);
+  var ruta = "CLASS/classDriver.php";
+  $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(datos)
+      {
+        closeModal();
+        swal("La caja ha sido guardado con exito ", { icon: "success",});
+        $("form#formDoble")[0].reset();
+      }
+  }); 
+}

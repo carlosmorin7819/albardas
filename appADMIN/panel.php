@@ -12,21 +12,9 @@
 					include 'TEMPLATES/users.php';
 					break;
 				case '2':
-					include 'TEMPLATES/veiculos.php';
-					break;
-				case '3':
-					include 'TEMPLATES/gasoline.php';
-					break;
-				case '7':
-					include 'TEMPLATES/users.php';
-					break;
-				case '8':
-					include 'TEMPLATES/quotation.php';
+					include 'TEMPLATES/packing.php';
 					break;
 				
-				default:
-					include 'TEMPLATES/bodega.php';
-					break;
 			}
 		}else{
 			include 'posts.php';

@@ -128,8 +128,8 @@
 		</div>
 		<div class="formPanel">	
 			<form autocomplete="off" method="post" onsubmit="login_validate();" id="formLogin">
-				<input type="mail" name="email" class="inputStyle2" placeholder="Nombre de usuario">
-				<input type="password" name="pass" class="inputStyle2" placeholder="Contraseña">
+				<input type="mail" name="email" class="inputStyle2" placeholder="Nombre de usuario" required="">
+				<input type="password" name="pass" class="inputStyle2" placeholder="Contraseña" required="">
 				<p class="erromsg hidden">usuario / contraseña incorrectos </p>
 				<input type="hidden" name="type_form" value="validate_user">
 				<input type="submit" value="Entrar" class="button">

@@ -125,11 +125,6 @@
 		                	mysqli_close($con);
 					}
 
-		public static function save_costumer($name, $last_name, $mail, $phone, $origin_place)
-		{
-			mysql_query("INSERT INTO costumers VALUES('','$name','$last_name','$phone','$mail','$origin_place','','')");
-			//$resultUsers = mysql_query("SELECT * FROM users"); 
-		}
 		
 	}
 ?>
