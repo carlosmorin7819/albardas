@@ -7,14 +7,13 @@
 		
 		if ($_GET) {
 			$typeTemplate = $_GET['template'];
-			switch ($typeTemplate) {
+				switch ($typeTemplate) {
 				case '1':
 					include 'TEMPLATES/users.php';
 					break;
 				case '2':
 					include 'TEMPLATES/packing.php';
 					break;
-				
 			}
 		}else{
 			include 'posts.php';

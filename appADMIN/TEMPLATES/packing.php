@@ -4,9 +4,14 @@
 	if ($_POST) {
 		require 'saveDriver.php';		
 	}
-
-		$sql = "SELECT * FROM users";
+		//CONSULTA DATOS DE EMPRESAS
+		$sql = "SELECT * FROM employes";
    		$result = mysqli_query($con, $sql);
+
+
+   		//CONSULTA DE CLIENTES
+   		$sql_costumers = "SELECT * FROM costumers";
+   		$result_costumers = mysqli_query($con, $sql_costumers);
 
 
 	$user_master = $_SESSION['user']['type_user'] == 1;
@@ -27,24 +32,191 @@
 	}
 	
 ?>
+
 <div class="panelContainer">
 	<h1 class="title">Empaque</h1>
 	
 	<br>
 		<?php 
+			date_default_timezone_set("America/Mexico_City");
+
+		
+				$hora = date ("h:i");
+				$fecha = date ("j/n/Y");
+
+
+		
+	
 		
 		//var_dump($_SESSION['user']);
 		if ($user_master): ?>
-			<span class="buttonAdd " onclick="modalUser();">
+			<button class="buttonAdd" onclick="modalUser(this);">
 				<i class="fa fa-user-plus" aria-hidden="true"></i>
 				Nuevo registro
-			</span>
+			</button>
+			
 		<?php endif ?>
 	<br><br>
 	<div class="containerTable">
-	
-
 		
+		
+		<!--FORMULARIO DE INFORMACION DE LAS EMPRESAS-->
+		<form action="gasoline.php" method="post" id="formRemision" class="" onsubmit="infoEmploye();">
+			<input type="hidden" name="type_form" value="registro">
+			<div class="row">
+				<div class="col-lg-12 text-left">
+					<h3>Remision de salida</h3>
+					<hr>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1 ">
+					<label for="">
+						EMPRESA:
+					</label>
+					<br>	<br>	
+					<label for="">
+						RFC:
+					</label>
+					<br>	<br>	
+					<label for="">
+						DOMICILIO:
+					</label>	
+					<br>	<br>	
+					<label for="">
+						CIUDAD:
+					</label>		
+				</div>
+				
+				<div class="col-lg-4 text-left">
+					<select name="name" id="name" class="inputStyle" onchange="search_employe(this);">
+						<option value="">SELECCIONA</option>
+						<?php  while($elemento = mysqli_fetch_array($result)){ ?>
+						<option value="<?= $elemento['id_employe']; ?>"><?= $elemento['name']; ?></option>
+						<?php } ?>
+					</select>
+					<div id="dataEmploye">
+						<input type="hidden" name="name_employe" value="">
+						<input type="text" name="rfc" id="rfc" value="--" class="inputStyle mTop5"><br>
+						<input type="text" name="adress" id="adress" value="--" class="inputStyle mTop5"><br>
+						<input type="text" name="city" id="city" value="--" class="inputStyle mTop5"><br>
+						<input type="hidden" name="tel" id="tel" value="--" class="inputStyle mTop5"><br>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row">	
+				<div class="col-lg-1 ">
+					<label for="">
+						CLIENTE:
+					</label>
+					<br>	<br>	
+					<label for="">
+						RFC:
+					</label>
+					<br>	<br>	
+					<label for="">
+						TELEFONO:
+					</label>	
+				</div>
+				<div class="col-lg-4 ">
+					<select name="name_costumer" id="name_costumer" class="inputStyle" onchange="search_costumer(this);">
+						<option value="">SELECCIONA</option>
+						<?php  while($elemento = mysqli_fetch_array($result_costumers)){ ?>
+						<option value="<?= $elemento['id_costumer']; ?>"><?= $elemento['name']; ?></option>
+						<?php } ?>
+					</select>
+
+					<div id="dataCostumer">
+						<input type="text" name="" id="rfc_costumer" value="--" class="inputStyle mTop5"><br>
+						<input type="text" name="" id="adress_costumer" value="--" class="inputStyle mTop5"><br>
+					</div>
+				</div>
+			</div>
+			<input type="submit" value="ENVIAR">
+			<hr>
+		</form>
+		
+		<!--FORMULARIO DE CAMPOS DINAMICOS-->
+		<form action="" id="formProductos" method="post" onsubmit="infoProductos();">
+			
+			<div class="container noMargin" id="contentProd">
+				<div class="col-lg-12">	
+					<h4>Registro de productos</h4>
+				</div>
+
+				<div id="rowP" class="row">
+					<input type="hidden" name="type_form" value="productos">
+					<div class="col-lg-1 ">
+						<div class="block">
+							<label for="">Cantidad</label>
+							<input type="text" class="inputStyle" name="caant0">
+						</div>
+					</div>
+					<div class="col-lg-5 ">
+						<div class="block">
+							<label for="">Producto</label>
+							<input type="text" class="inputStyle" name="prod0">
+						</div>
+					</div>
+
+					<div class="col-lg-1 ">
+						<div class="block">
+							<label for="">KG</label>
+							<input type="text" class="inputStyle" name="kg0">
+						</div>
+					</div>
+					<div class="col-lg-2 ">
+						<div class="block">
+							<label for="">Precio</label>
+							<input type="text" class="inputStyle" name="price0">
+						</div>
+					</div>
+					<div class="col-lg-2 ">
+						<div class="block">
+							<label for="">Importe</label>
+							<input type="text" class="inputStyle" name="import0">
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4 ">
+					<br>		
+					<button class="buttonStyle bg-primary pull-right w100 text-600" type="button" id="addProducto">
+						Añadir producto <i class="fa fa-plus" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+			<input type="submit" value="enviar">
+		</form>
+			<div class="clear"></div>
+			<div class="clear"></div>
+			<div class="clear"></div>
+			<div class="clear"></div>
+			<div class="clear"></div>
+
+			<div class="row">
+				<div class="col-lg-3 col-lg-offset-4">
+					<button type="button" onclick="cleanForm();">Limpiar formuluario</button>
+
+				</div>
+				<div class="col-lg-3">
+					<input type="submit" value="Generar remision" class="buttonStyle bgBlue" onclick="sendRemision();">
+				</div>
+			</div>
+			
+
+	</div>
+
+<div id="bgBlack"  onclick="closeModal();">	
+	<div class="closeModal">
+		<i class="fa fa-times" aria-hidden="true"></i>
+	</div>
+</div>
+
 <div class="containerForm hidden">
 	<h2 class="titileModal">Nuevo Usuario</h2>
 	<div id="example-manipulation">
@@ -93,7 +265,7 @@
 		        </form>
 		    </section>
 
-		    <h3>Registro  de tractor</h3>
+		    <h2 class="text-600">Registro  de tractor</h2>
 		    <section>
 		        <form action="" id="formTractor" method="post" onsubmit="save_tractor();">
 		        	<input type="hidden" name="type_form" value="save_tractor">
@@ -208,11 +380,5 @@
 
 			</div>
 		</div>
-</div>
 
-<div id="bgBlack"  onclick="closeModal();"	>
-	<div class="closeModal">
-		<i class="fa fa-times" aria-hidden="true"></i>
-	</div>
-</div>
 <div class="formEdit"></div>

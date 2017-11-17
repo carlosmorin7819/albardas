@@ -28,13 +28,13 @@
 	
 	<br>
 		<?php 
-		
 		//var_dump($_SESSION['user']);
 		if ($user_master): ?>
-			<span class="buttonAdd " onclick="modalUser();">
+			<span class="buttonAdd"  onclick="modalUser();">
 				<i class="fa fa-user-plus" aria-hidden="true"></i>
 				Nuevo usuario
 			</span>
+			
 		<?php endif ?>
 	<br><br>
 	<div class="containerTable">
@@ -69,7 +69,7 @@
 					<th><?= $elemento['gender']; ?></th>
 					<th><?= $elemento['type_user']; ?></th>
 					<th>
-						<a href="CLASS/editUser.php?id=<?= $elemento['id']; ?>" onclick="editUser(this);"	 class="buttonAdd" >
+						<a href="CLASS/editUser.php?id=<?= $elemento['id']; ?>" onclick="editUser(this);" class="buttonAdd" >
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 					</th>

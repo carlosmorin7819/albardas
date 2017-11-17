@@ -5,6 +5,12 @@
 	font-family: 'Roboto', sans-serif;	
 	
 }
+.mTop5{
+   margin-top: 8px !important;
+}
+.cRed{
+  color: tomato;
+}
 .passNoValid{
   border: 1px solid #ff6b6b !important;
   background: #fdcaca !important;
@@ -16,15 +22,19 @@
 ul{
 	transition: all .3s !important;
 }
-
+.delte{
+  color: tomato !important;
+  font-size: 20px !important;
+  cursor: pointer;
+}
 .toggleMenu{
-    position: absolute;
-    right: -38px;
-    background: #31383e;
-    padding: 10px 13px;
-    color: #fff;
-    border-radius: 0px 5px 5px 0px;
-    cursor: pointer;
+  position: absolute;
+  right: -38px;
+  background: #31383e;
+  padding: 10px 13px;
+  color: #fff;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
 }
 .imgProfile{
 	width: 60px;

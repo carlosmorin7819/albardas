@@ -2,7 +2,8 @@
 		
 	</footer>
 	
-	<script src="JS/jquery-3.2.1.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="JS/jquery.validate.js"></script>
 	<script src="JS/jquery.steps.js"></script>
 	<script src="JS/action.js"></script>

@@ -1,24 +1,20 @@
-<?php 	
 
-	echo "<pre>";
-	error_log(var_dump($_POST,TRUE));
+<?php
 	
-	echo "</pre>";
- ?>
+ $name = $_POST["name"];
+ $rfc = $_POST["rfc"];
+ //$adress = $_POST["adress"];
+ $city = $_POST["city"];
+ $tel = $_POST["tel"];
 
- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>REMISION</title>
-</head>
-<body>
-	<table style="max-width:750px; border: 2px double #000; padding: 10px; width: 100%; height: 100px; background: #f9f9f9; margin: 0 auto; font-family: Arial; font-size: 15px; background: url(../IMG/logo2.png); background-position: center; background-size: 100%;">
+$html = '<table style="max-width:780px; border: 2px double #000; width: 100%; height: 100px; background: #f9f9f9; margin: 0 auto; font-family: Arial; font-size: 15px; background: url(../IMG/logo2.png); background-position: center; background-size: 100%;">
 		<thead>
 			
 			<tr>
 				<th>
-					<h4 style="font-family: 15px !important;">REMISION DE SALIDA</h4>
+				<br>
+					<h4 style="font-size: 20px !important; padding:10px;">REMISION DE SALIDA</h4> 
+					<br> 
 				</th>
 			</tr>
 			<tr>
@@ -36,10 +32,10 @@
 										<span style="padding:3px;"> <b>CIUDAD	:</b></span><br>
 									</th>
 									<th width="68%" style="text-align: left;">
-										<span style="font-weight: normal; padding:3px;"> EL CEGADOR SPR DE RL DE CV</span><br>
-										<span style="font-weight: normal; padding:3px;">99O88E8E8UE88I</b></span><br>
-										<span style="font-weight: normal; padding:3px;">	GUERRERO #14 COL. CENTRO</b></span><br>
-										<span style="font-weight: normal; padding:3px;">	PARRAS DE LA FUENTE</b></span><br>
+										<span style="font-weight: normal; padding:3px;"> '.$name.'</span><br>
+										<span style="font-weight: normal; padding:3px;">'.$rfc.'</b></span><br>
+										<span style="font-weight: normal; padding:3px;"></b></span><br>
+										<span style="font-weight: normal; padding:3px;">'.$city.'</b></span><br>
 									</th>
 								</tr>
 							</table>
@@ -57,7 +53,7 @@
 									<th width="50%" style="text-align: left;">
 										<span style="font-weight: normal;"> 27/12/2107</span><br>
 										<span style="font-weight: normal;"> 2:04 pm</span><br>
-										<span style="font-weight: normal;">842 104 31 96</span><br><br>
+										<span style="font-weight: normal;">'.$tel.'</span><br><br>
 										
 									</th>
 								</tr>
@@ -144,7 +140,7 @@
 			</tr>
 			<!--TABLA DE CONTENIDO-->
 			<tr width="100%">
-				<th style="height: 250px; vertical-align: top;">
+				<th style="height: 300px; vertical-align: top;">
 					<table style=" margin-top: 10px;"  width="100%" border="0">
 						<thead style=" ">
 							<tr style=""  width="100%" >
@@ -165,22 +161,22 @@
 
 						<tr style="">
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									900
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									Repollo verde arpillas de 50 lbs
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									$2
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									$1800
 								</span>
 							</th>
@@ -188,118 +184,28 @@
 
 						<tr style="">
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									900
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									Repollo verde arpillas de 50 lbs
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									$2
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
+								<span style="font-weight: normal; font-size: 16px; ">
 									$1800
 								</span>
 							</th>
 						</tr>
 
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
 
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
-
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
-
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
 
 					</table>
 
@@ -494,34 +400,34 @@
 								<table width="100%">
 									
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">Marca:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">KW</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">Modelo:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">2007</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">N economico:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">2007</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">PLACAS:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">WK-2390</span>
 										</th>
 									</tr>
@@ -533,34 +439,34 @@
 								<table width="100%">
 									
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">Tipo de caja:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">Termo</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">Placas:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">AS-3SSW</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">N economico:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">123</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">Temperatura:</span>
-										</th width="50%">
-										<th>
+										</th >
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">50 f</span>
 										</th>
 									</tr>
@@ -572,35 +478,35 @@
 								<table width="100%">
 								
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">CAAT:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">1245</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">ALPHA:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">ASRH</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">ICCMX:</span>
-										</th width="50%">
-										<th>
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
 											<span style="font-weight: 400; font-size: 14px;">577442</span>
 										</th>
 									</tr>
 									<tr>
-										<th width="50%">
-											<span style="font-weight: 400; font-size: 14px;">US DOT:</span>
-										</th width="50%">
-										<th>
-											<span style="font-weight: 400; font-size: 14px;">155972Z</span>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
+											US DOT:
+										</th>
+										<th width="50%" style="text-align: left; font-weight: normal; ">
+											155972Z
 										</th>
 									</tr>
 							
@@ -616,11 +522,13 @@
 					<table width="100%">
 						<tr>
 							<th width="45%" style="padding: 15px;">
-								<div style="border-top: 1px solid #000; margin-top: 45px;"></div><div style="padding: 2px;"></div>
+								<br><br>
+								<hr>
 								<span style="font-weight: 300; padding: 5px; margin: 2px; font-size: 13px;">Persona que formula</span>
 							</th>
 							<th width="45%" style="padding: 15px;">
-								<div style="border-top: 1px solid #000; margin-top: 45px;"></div><div style="padding: 2px;"></div>
+								<br><br>
+								<hr>
 								<span style="font-weight: 300; padding: 5px; margin: 2px; font-size: 13px;">Persona que recibe</span>
 							</th>
 						</tr>
@@ -629,6 +537,13 @@
 			</tr>
 
 		</footer>
-	</table>
-</body>
-</html>
+	</table>';
+ 
+	include("../../MPDF_6_0/mpdf.php");
+	$mpdf=new mPDF();
+	$mpdf->WriteHTML($html);
+	ob_clean();
+	$namePDF = str_shuffle("ab89".uniqid());
+
+	$mpdf->Output('PDF/'.$namePDF.'.pdf', 'D');
+?>

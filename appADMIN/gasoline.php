@@ -1,19 +1,18 @@
 <?php 	
+session_start();
+$time = time();
 
-	echo "<pre>";
-	error_log(var_dump($_POST,TRUE));
-	
-	echo "</pre>";
- ?>
+ date_default_timezone_set("America/Mexico_City");
+	$hora = date ("H:i",time('H:i:s'));
+	$fecha = date ("d-m-Y");
 
- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>REMISION</title>
-</head>
-<body>
-	<table style="max-width:750px; border: 2px double #000; padding: 10px; width: 100%; height: 100px; background: #f9f9f9; margin: 0 auto; font-family: Arial; font-size: 15px; background: url(../IMG/logo2.png); background-position: center; background-size: 100%;">
+foreach($_POST as $campo => $valor) {
+	        $_SESSION['info_employes'][$campo] = $valor; 
+	    }
+
+	error_log(print_r($_SESSION, TRUE));	
+?>
+<table style="max-width:750px; border: 2px double #000; padding: 10px; width: 100%; height: 100px; background: #f9f9f9; margin: 0 auto; font-family: Arial; font-size: 15px; background: url(../IMG/logo2.png); background-position: center; background-size: 100%;">
 		<thead>
 			
 			<tr>
@@ -29,17 +28,22 @@
 						<th style="text-align: left; " width="70%">
 							<table width="100%">
 								<tr>
-									<th width="32%" style="text-align: right;">
+									<th width="32%" style="text-align: right; font-size: 14px;">
 										<span style="padding:3px;"> <b>EMPRESA	:</b></span><br>
 										<span style="padding:3px;"> <b>RFC	:</b></span><br>
 										<span style="padding:3px;"> <b>DOMICILIO	:</b></span><br>
 										<span style="padding:3px;"> <b>CIUDAD	:</b></span><br>
 									</th>
-									<th width="68%" style="text-align: left;">
-										<span style="font-weight: normal; padding:3px;"> EL CEGADOR SPR DE RL DE CV</span><br>
-										<span style="font-weight: normal; padding:3px;">99O88E8E8UE88I</b></span><br>
-										<span style="font-weight: normal; padding:3px;">	GUERRERO #14 COL. CENTRO</b></span><br>
-										<span style="font-weight: normal; padding:3px;">	PARRAS DE LA FUENTE</b></span><br>
+									<th width="68%" style="text-align: left; font-size: 14px;">
+										<span style="font-weight: normal; padding:3px;">
+
+										<?php echo $_SESSION['info_employes']['name_employe']; ?>
+										</span><br>
+										<span style="font-weight: normal; padding:3px;">
+											<?php echo $_SESSION['info_employes']['rfc']; ?></b></span><br>
+										<span style="font-weight: normal; padding:3px;">
+											<?php echo $_SESSION['info_employes']['adress']; ?></b></span><br>
+										<span style="font-weight: normal; padding:3px;">	<?php echo $_SESSION['info_employes']['city']; ?></b></span><br>
 									</th>
 								</tr>
 							</table>
@@ -48,16 +52,17 @@
 						<th style="text-align: left;" width="30%">
 							<table width="100%">
 								<tr>
-									<th width="50%" style="text-align: right;">
+									<th width="50%" style="text-align: right; font-size: 14px;">
 										<span> <b>FECHA	:</b></span><br>
 										<span> <b>HORA	:</b></span><br>
 										<span> <b>TEL	:</b></span><br><br>
 										
 									</th>
-									<th width="50%" style="text-align: left;">
-										<span style="font-weight: normal;"> 27/12/2107</span><br>
-										<span style="font-weight: normal;"> 2:04 pm</span><br>
-										<span style="font-weight: normal;">842 104 31 96</span><br><br>
+									<th width="50%" style="text-align: left; font-size: 14px;">
+										<span style="font-weight: normal;"> <?=$fecha; ?></span><br>
+										<span style="font-weight: normal;"> 
+											<?=$hora; ?></span><br>
+										<span style="font-weight: normal;"><?php echo $_SESSION['info_employes']['tel']; ?></span><br><br>
 										
 									</th>
 								</tr>
@@ -79,7 +84,7 @@
 						<th style="text-align: left; " width="100%">
 							<table width="100%">
 								<tr>
-									<th width="20%" style="text-align: right;">
+									<th width="20%" style="text-align: right; font-size: 14px;">
 										<div style="padding: 2px;"> 
 											<b>CLIENTE	:</b>
 										</div>
@@ -100,7 +105,7 @@
 										</div>
 								
 									</th>
-									<th width="70%" style="text-align: left;">
+									<th width="70%" style="text-align: left; font-size: 14px;">
 										<div style="padding: 2px;">
 										 	<span style="font-weight: normal;">
 										 		SWEET SUPERIOR FRUIT LTD CO
@@ -148,158 +153,54 @@
 					<table style=" margin-top: 10px;"  width="100%" border="0">
 						<thead style=" ">
 							<tr style=""  width="100%" >
-								<td style="padding: 2px; border-bottom: 1px solid #000; margin: 0px; ">
+								<td style="padding: 2px;  font-weight:bold;border-bottom: 1px solid #000; margin: 0px; text-align: center;">
 									Cantidad
 								</td>
-								<td style="padding: 2px; border-bottom: 1px solid #000;  ">
+								<td style="padding: 2px;  font-weight:bold;border-bottom: 1px solid #000;  text-align: center;">
 									Concepto
 								</td>
-								<td style="padding: 2px; border-bottom: 1px solid #000;  ">
+								<td style="padding: 2px; font-weight:bold; border-bottom: 1px solid #000;  text-align: center;">
 									Precio
 								</td>
-								<td style="padding: 2px; border-bottom: 1px solid #000;  ">
+								<td style="padding: 2px; font-weight:bold; border-bottom: 1px solid #000;  text-align: center;">
 									Importe
 								</td>
 							</tr>
 						</thead>
-
+						<?php 
+							   $i=0;
+    
+  							 $numrows = count($_SESSION['productos'])/6-1;
+							while($i <= $numrows){ 
+    						$id = $i+1;
+  
+						 ?>
 						<tr style="">
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
+								<span style="font-weight: normal; font-size: 14px; text-transform: uppercase;">
+									<?php echo $_SESSION['productos']['caant'.$i.'']; ?>
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
+								<span style="font-weight: normal; font-size: 14px; text-transform: uppercase;">
+									<?php echo $_SESSION['productos']['prod'.$i.'']; ?>
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
+								<span style="font-weight: normal; font-size: 14px; text-transform: uppercase;">
+									<?php echo $_SESSION['productos']['kg'.$i.'']; ?>
 								</span>
 							</th>
 							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
+								<span style="font-weight: normal; font-size: 14px; text-transform: uppercase;">
+									<?php echo "$" . $_SESSION['productos']['price'.$i.'']; ?>
 								</span>
 							</th>
 						</tr>
 
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
-
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
-
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
-
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
-
-						<tr style="">
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									900
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									Repollo verde arpillas de 50 lbs
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$2
-								</span>
-							</th>
-							<th style="padding: 2px; border-bottom: .5px solid #ccc;">
-								<span style="font-weight: normal; font-size: 14px; ">
-									$1800
-								</span>
-							</th>
-						</tr>
+					<?php  
+						$i++;  	
+					} ?>
 
 					</table>
 
@@ -630,5 +531,3 @@
 
 		</footer>
 	</table>
-</body>
-</html>

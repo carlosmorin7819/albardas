@@ -1,7 +1,7 @@
 
 /** AJAX VALIDAR USUARIO **/
 function login_validate() {
-    event.preventDefault()
+    event.preventDefault();
     var formData = new FormData($("#formLogin")[0]);
     var ruta = "CLASS/class.php";
     $.ajax({
@@ -42,7 +42,7 @@ function save_user(){
           processData: false,
           success: function(datos)
           {
-            closeModal();
+            closeModal(obj);
             swal("El usuario ha sido guardado con exito ", { icon: "success",});
             $("#formUser")[0].reset();
             $("div.containerTable").empty();
@@ -88,6 +88,35 @@ function deleteUser(obj) {
     });
 }
 
+function cleanForm(){
+  event.preventDefault();
+    swal({
+      title: "Eliminar usuario",
+      text: "Este seguro de eliminar este usuario",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+            var id = $(obj).attr("href");
+
+            $.get(id, function(data, status){
+            swal("El usuario ha sido eliminado con éxito ", {
+              icon: "success",
+            });
+
+            $("div.containerTable").empty();
+            $("div.containerTable").html(data);
+            $('#tableUsers').DataTable();
+
+        });
+        
+      } else {
+        swal("Operación cancelada");
+      }
+    });
+}
 /** AJAX EDITAR USUARIO FINAL**/
 function updateUser(){
     event.preventDefault();
@@ -101,7 +130,7 @@ function updateUser(){
         processData: false,
         success: function(datos)
         {
-          closeModal2();
+          closeModal2(obj);
           swal("El usuario ha sido Actualizado con exito ", {
             icon: "success",
           });
@@ -117,14 +146,14 @@ function updateUser(){
 
 /** AJAX EDITAR USUARIO **/
 function editUser(obj){
-    event.preventDefault();
-    var id = $(obj).attr("href");
-  
-    $.get(id, function(data, status){
-        $("div.formEdit").html(data);
-        $("#bgBlack2").fadeIn('fast');
+  event.preventDefault();
+  var id = $(obj).attr("href");
 
-    });
+  $.get(id, function(data, status){
+      $("div.formEdit").html(data);
+      $("#bgBlack2").fadeIn('fast');
+
+  });
 }
 
 
@@ -166,10 +195,8 @@ function save_tractor(){
             closeModal();
             swal("El tractor ha sido guardado con exito ", { icon: "success",});
             $("#formTractor")[0].reset();
- 
-           
           }
-        }); 
+      }); 
 }
 
 function save_boxF_S(){
@@ -184,8 +211,8 @@ function save_boxF_S(){
     alert("Espesifique tipo de caja");
   }
   //alert(full_simple);
-
 }
+
 function save_box(){
   event.preventDefault();
   var formData = new FormData($("form#formSencillo")[0]);
@@ -222,4 +249,80 @@ function save_boxFull(){
         $("form#formDoble")[0].reset();
       }
   }); 
+}
+
+function search_employe(obj){
+  var formData = new FormData($("form#formRemision")[0]);
+   var ruta = "CLASS/REM/search_employe.php";
+    $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(datos)
+      {
+        $("div#dataEmploye").empty();
+        $("div#dataEmploye").html(datos);
+      
+      }
+  }); 
+}
+
+function search_costumer(obj){
+  var formData = new FormData($("form#formRemision")[0]);
+   var ruta = "CLASS/REM/search_costumer.php";
+    $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(datos)
+      {
+        $("div#dataCostumer").empty();
+        $("div#dataCostumer").html(datos);
+      }
+  }); 
+}
+
+function infoEmploye(){
+  event.preventDefault();
+  var formData = new FormData($("form#formRemision")[0]);
+   var ruta = "gasoline.php";
+    $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(datos)
+      {
+      
+      }
+  }); 
+}
+function infoProductos(){
+  event.preventDefault();
+  var formData = new FormData($("form#formProductos")[0]);
+   var ruta = "infoRemision.php";
+    $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(datos)
+      {
+      
+      }
+  }); 
+}
+
+function sendRemision(){
+  infoProductos();
+  infoEmploye();
+
+  alert("emviadp");
+
 }
