@@ -3,7 +3,7 @@
 	$session_user = isset($_SESSION['user']);
 
 		//echo "session setada";
-		include 'header.php';
+	include 'header.php';
 		
 		if ($_GET) {
 			$typeTemplate = $_GET['template'];
@@ -13,6 +13,9 @@
 					break;
 				case '2':
 					include 'TEMPLATES/packing.php';
+					break;
+				case '3':
+					include 'TEMPLATES/remisions.php';
 					break;
 			}
 		}else{

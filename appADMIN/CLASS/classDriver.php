@@ -17,6 +17,14 @@
 					driver_class::save_driver($name_driver, $phone_driver, $name_reference, $phone_reference, $nombre);				
 				break;
 
+			case 'save_product':
+					$name_product = $_POST['name'];
+					$type_pack = $_POST['type_pack'];
+					$nombre = $_FILES['imagen']['name'];
+
+					driver_class::save_product($name_product, $type_pack, $nombre, $con);				
+				break;
+
 			case 'save_tractor':
 					$brand_tractor = $_POST['brand_tractor'];
 					$model_tractor = $_POST['model_tractor'];

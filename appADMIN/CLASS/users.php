@@ -84,7 +84,7 @@
 						</thead>';
 			$table .= '<tbody>';
 					while($elemento = mysqli_fetch_array($query_users)){ 
-						$table .= '<tr>
+			$table .= '<tr>
 						<th>'.$elemento['id'].'</th>
 						<th><img src="IMG/'.$elemento['img_profile'].'" alt="" height="40"></th>
 						<th>'.$elemento['name'].'</th>

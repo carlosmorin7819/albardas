@@ -113,6 +113,29 @@
 
 		}
 
+
+		public static  function save_product($name_product, $type_pack, $nombre, $con){
+
+			$nombrer = strtolower($nombre);
+			$cd=$_FILES['imagen']['tmp_name'];
+			$ruta = "../IMG_PRODUCTS/" . $_FILES['imagen']['name'];
+			$destino = "../IMG_PRODUCTS/".$nombrer;
+			$resultado = @move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);
+
+			$chars = "abcdefghijkmnopqrstuvw-xyz-0123456789"; 
+			$codee = driver_class::generate_code($chars);
+			// Attempt insert query execution
+			$sql = "INSERT INTO products VALUES ('','$codee','$name_product','$type_pack','$nombre')";
+			//$sql = "INSERT INTO users  VALUES ('','$name','$last_name','$mail','$nombre','$phone','$type_user','$pass', '$gender')";
+
+			if(mysqli_query($con, $sql)){
+			   	
+			} else{
+			    echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+			}
+
+		}
+
 	}
 
 		

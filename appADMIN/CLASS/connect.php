@@ -3,11 +3,11 @@
 
 	
 
-$con = mysqli_connect("localhost","root","","albardas_bd");
+	$con = mysqli_connect("localhost","root","","albardas_bd");
 
 // Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+	if (mysqli_connect_errno())
+	  {
+	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	  }
 ?>

@@ -2,15 +2,16 @@
 		
 	</footer>
 	
+	
+	<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script language="JavaScript" type="text/javascript" src="JS/jquery.steps.js"></script>
+	<script language="JavaScript" type="text/javascript" src="JS/action.js"></script>
+	<script src="JS/remisions.js"></script>
+	<script language="JavaScript" type="text/javascript" src="JS/ajax.js"></script>
+	<script language="JavaScript" type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="JS/jquery.validate.js"></script>
-	<script src="JS/jquery.steps.js"></script>
-	<script src="JS/action.js"></script>
-	<script src="JS/validate.js"></script>
-	<script src="JS/ajax.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 	</body>
 </html>

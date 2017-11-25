@@ -51,6 +51,13 @@
 	 		</a>
 	 	</li>
 	 	<li>
+			<a href="panel.php?template=3" class="<?php if($_GET['template'] == 3){ echo 'hover'; }?>">
+				<!-- iconListMenu -->
+				<i class="fa fa-archive iconListMenu" aria-hidden="true"></i>
+	 			Remisiones
+	 		</a>
+	 	</li>
+	 	<li>
 			<a href="panel.php?template=3">
 			<i class="fa fa-list-alt iconListMenu" aria-hidden="true"></i>
 				Catalogo de proveedores

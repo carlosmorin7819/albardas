@@ -170,7 +170,7 @@
 .inputStyle, .textarea{
     background: #edebeb;
     width: 100%;
-    height: 40px;
+    height: 35px;
     border-radius: 5px;
     outline: none;
     padding: 0px 8px;
@@ -6148,30 +6148,7 @@ button.close {
     width: 900px;
   }
 }
-.tooltip {
-  position: absolute;
-  z-index: 1070;
-  display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: left;
-  text-align: start;
-  text-decoration: none;
-  text-shadow: none;
-  text-transform: none;
-  letter-spacing: normal;
-  word-break: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  white-space: normal;
-  filter: alpha(opacity=0);
-  opacity: 0;
 
-  line-break: auto;
-}
 .tooltip.in {
   filter: alpha(opacity=90);
   opacity: .9;
@@ -6706,6 +6683,13 @@ button.close {
 .affix {
   position: fixed;
 }
+.lineBlock {
+  display: block;
+  height: 1.2px;
+  width: 100%;
+  background: #777777;
+}
+
 @-ms-viewport {
   width: device-width;
 }

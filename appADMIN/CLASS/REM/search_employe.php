@@ -1,5 +1,5 @@
 <?php 
-include '../connect.php';
+	include '../connect.php';
 	$name = $_POST['name'];
 
 	
@@ -24,4 +24,4 @@ include '../connect.php';
 	$employe .= '<input type="hidden" name="tel" id="tel" value="'.$result['tel'].'" class="inputStyle mTop5"><br>';
 
 	echo $employe;
- ?>
+ ?>	

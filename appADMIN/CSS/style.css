@@ -264,62 +264,80 @@ table{
     border: 1px solid #adb1b3;
 }
 /**TABS STYLE**/
-ul.tabs {
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+.tab {
+  padding-top: 50px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  color: #888;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabs {
+  display: table;
+  position: relative;
+  overflow: hidden;
   margin: 0;
-  padding: 0;
-  float: left;
-  list-style: none;
-  height: 32px;
-  border-bottom: 1px solid #333;
   width: 100%;
 }
-
-ul.tabs li {
+.tabs li {
   float: left;
-  margin: 0;
-  cursor: pointer;
-  padding: 0px 21px;
-  height: 31px;
-  line-height: 31px;
-  border-top: 1px solid #333;
-  border-left: 1px solid #333;
-  border-bottom: 1px solid #333;
-  background-color: #666;
-  color: #ccc;
+  line-height: 38px;
   overflow: hidden;
+  padding: 0;
   position: relative;
 }
-
-.tab_last { border-right: 1px solid #333; }
-
-ul.tabs li:hover {
-  background-color: #ccc;
-  color: #333;
+.disabled{
+background: rgba(0,0,0,.1);
+ 
+}
+.tabs a {
+  background-color: #eff0f2;
+  border-bottom: 1px solid #fff;
+  color: #888;
+  font-weight: 500;
+  display: block;
+  letter-spacing: 0;
+  outline: none;
+  padding: 0 20px;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid blue;
 }
 
-ul.tabs li.active {
-  background-color: #fff;
-  color: #333;
-  border-bottom: 1px solid #fff;
+.tabs_item {
+  display: none;
+  padding: 30px 0;
+  border:1px solid #777777 !important;
+  border-radius: 3px; 
+}
+.tabs_item h4 {
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+}
+.tabs_item img {
+  width: 200px;
+  float: left;
+  margin-right: 30px;
+}
+.tabs_item:first-child {
   display: block;
 }
 
-.tab_container {
-  border: 1px solid #333;
-  border-top: none;
-  clear: both;
-  float: left;
-  width: 100%;
-  background: #fff;
-  overflow: auto;
+.current a {
+  color: #fff !important;
+  background: blue;
 }
-
-.tab_content {
-  padding: 20px;
-  display: none;
-}
-
-.tab_drawer_heading { display: none; }
 
 @media screen and (max-width: 480px) {
   .tabs {
@@ -344,4 +362,45 @@ ul.tabs li.active {
     background-color: #666;
     color: #fff;
   }
+}
+
+/* TOOLTIP */
+
+
+
+span.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+ul#suggesstion-box, ul.drivers-box{
+  list-style: none;
+  border-radius: 3px;
+  overflow: hidden;
+
+
+}
+ul#suggesstion-box li, ul.drivers-box li{
+  cursor: pointer;
+  transition: all .1s;
+  padding: 2px;
+
+}
+ul#suggesstion-box li:hover,
+ul.drivers-box li:hover{
+  background: #337ab7;
+  color: #fff;
+
 }

@@ -171,7 +171,7 @@
 	</form>
 </div>
 
-<div id="bgBlack"  onclick="closeModal();"	>
+<div id="bgBlack"  	>
 	<div class="closeModal">
 		<i class="fa fa-times" aria-hidden="true"></i>
 	</div>

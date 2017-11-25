@@ -3,35 +3,35 @@
 	include 'connect.php';
 	if(isset($_SESSION['carrito'])){
 		if(isset($_GET['id'])){
-					$arreglo=$_SESSION['carrito'];
-					$encontro=false;
-					$numero=0;
-					for($i=0;$i<count($arreglo);$i++){
-						if($arreglo[$i]['Id']==$_GET['id']){
-							$encontro=true;
-							$numero=$i;
-						}
-					}
-					if($encontro==true){
-						$arreglo[$numero]['Cantidad']=$arreglo[$numero]['Cantidad']+1;
-						$_SESSION['carrito']=$arreglo;
-					}else{
-						$nombre="";
-						$precio=0;
-						$re=mysql_query("select * from services_events where id=".$_GET['id']);
-						while ($f=mysql_fetch_array($re)) {
-							$nombre=$f['name'];
-							$precio=$f['price'];
-						}
-						$datosNuevos=array('Id'=>$_GET['id'],
-										'Nombre'=>$nombre,
-										'Precio'=>$precio,
-										'Cantidad'=>1);
+			$arreglo=$_SESSION['carrito'];
+			$encontro=false;
+			$numero=0;
+			for($i=0;$i<count($arreglo);$i++){
+				if($arreglo[$i]['Id']==$_GET['id']){
+					$encontro=true;
+					$numero=$i;
+				}
+			}
+			if($encontro==true){
+				$arreglo[$numero]['Cantidad']=$arreglo[$numero]['Cantidad']+1;
+				$_SESSION['carrito']=$arreglo;
+			}else{
+				$nombre="";
+				$precio=0;
+				$re=mysql_query("select * from services_events where id=".$_GET['id']);
+				while ($f=mysql_fetch_array($re)) {
+					$nombre=$f['name'];
+					$precio=$f['price'];
+				}
+				$datosNuevos=array('Id'=>$_GET['id'],
+								'Nombre'=>$nombre,
+								'Precio'=>$precio,
+								'Cantidad'=>1);
 
-						array_push($arreglo, $datosNuevos);
-						$_SESSION['carrito']=$arreglo;
+				array_push($arreglo, $datosNuevos);
+				$_SESSION['carrito']=$arreglo;
 
-					}
+			}
 		}
 	}else{
 		if(isset($_GET['id'])){

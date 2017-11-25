@@ -1,3 +1,122 @@
+//BUSCADOR DINAMICO DE PRODUCTOS
+$("input.search_product").keyup(function (){
+  $(this).parent("ul.suggesstion-box").fadeIn("fast");
+    $.ajax({
+    type: "POST",
+    url: "CLASS/REM/search_product.php",
+    data:'keyword='+$(this).val(),
+    beforeSend: function(){
+      //$("#suggesstion-box").css("background","#ccc url(LoaderIcon.gif) no-repeat 165px");
+    },
+    success: function(data){
+      $("ul.suggesstion-box").show();
+      $("ul.suggesstion-box").html(data);
+      $(".suggesstion-box").css("background","#f9f9f9");
+      $("li.list").click(function(){
+        var val = $(this).text();
+        $(this).parent("ul.suggesstion-box").fadeIn("fast");
+        var parentUl = $(this).parent("ul.suggesstion-box");
+        parentUl.siblings("input.search_product").val(val);
+        $("ul.suggesstion-box").fadeOut("fast");
+
+      });
+    }
+    });
+  });
+
+//BUSCADOR DINAMICO DE CHOFER
+$("input#name_driver").keyup(function (){
+    $("input#phone_driver").val("");
+    $("ul.drivers-box").hide();
+    $.ajax({
+    type: "POST",
+    url: "CLASS/REM/search_driver.php",
+    data:'keyword='+$(this).val(),
+    beforeSend: function(){
+      //$("#suggesstion-box").css("background","#ccc url(LoaderIcon.gif) no-repeat 165px");
+    },
+    success: function(data){
+
+      $("ul.drivers-box").show();
+      $("ul.drivers-box").html(data);
+      $("li.list").click(function(){
+        var val = $(this).text();
+       
+        var parentUl = $(this).parent("ul.drivers-box");
+        parentUl.siblings("input#name_driver").val(val);
+        $("ul.drivers-box").fadeOut("fast");
+          $.ajax({
+            type: "POST",
+            url: "CLASS/REM/search_driver.php",
+            data:'name='+$("input#name_driver").val(),
+            success: function(data){
+              $("div.input").html(data);
+            }
+          });
+      });
+    }
+    });
+});
+
+//BUSCADOR DINAMICO DE TRACTOR
+$("input#tractor").keyup(function(){
+    $.ajax({
+    type: "POST",
+    url: "CLASS/REM/search_driver.php",
+    data:'tractor='+$(this).val(),
+    success: function(data){
+      $("ul.tractor-box").show();
+      $("ul.tractor-box").html(data);
+      $("li.list").click(function(){
+        var val = $(this).text();
+        var parentUl = $(this).parent("ul.tractor-box");
+        parentUl.siblings("input#tractor").val(val);
+        $("ul.tractor-box").fadeOut("fast");
+        $.ajax({
+            type: "POST",
+            url: "CLASS/REM/search_driver.php",
+            data:'brand='+$("input#tractor").val(),
+            success: function(data){
+              //alert();
+              $("div.inputTractor").empty();
+              $("div.inputTractor").html(data);
+            }
+          });
+         
+      });
+    }
+    });
+});
+
+//BUSCADOR DINAMICO DE CAJA
+$("input#caja").keyup(function(){
+    $.ajax({
+    type: "POST",
+    url: "CLASS/REM/search_driver.php",
+    data:'brand_box='+$(this).val(),
+    success: function(data){
+      $("ul.caja-box").show();
+      $("ul.caja-box").html(data);
+      $("li.list").click(function(){
+        var val = $(this).text();
+        var parentUl = $(this).parent("ul.caja-box");
+        parentUl.siblings("input#caja").val(val);
+        $("ul.caja-box").fadeOut("fast");
+        $.ajax({
+            type: "POST",
+            url: "CLASS/REM/search_driver.php",
+            data:'brand_box2='+$("input#caja").val(),
+            success: function(data){
+              //alert();
+              $("div.inputCaja").empty();
+              $("div.inputCaja").html(data);
+            }
+          });
+         
+      });
+    }
+    });
+});
 
 /** AJAX VALIDAR USUARIO **/
 function login_validate() {
@@ -169,7 +288,7 @@ function save_driver(){
           processData: false,
           success: function(datos)
           {
-            closeModal();
+           
             swal("El chofer ha sido guardado con exito ", { icon: "success",});
             $("#formDriver")[0].reset();
  
@@ -192,7 +311,7 @@ function save_tractor(){
           processData: false,
           success: function(datos)
           {
-            closeModal();
+          
             swal("El tractor ha sido guardado con exito ", { icon: "success",});
             $("#formTractor")[0].reset();
           }
@@ -252,7 +371,8 @@ function save_boxFull(){
 }
 
 function search_employe(obj){
-  var formData = new FormData($("form#formRemision")[0]);
+
+  var formData = new FormData($(obj).parent('div.col-lg-5').parent('div.row').parent('form.formRemision')[0]);
    var ruta = "CLASS/REM/search_employe.php";
     $.ajax({
       url: ruta,
@@ -262,67 +382,50 @@ function search_employe(obj){
       processData: false,
       success: function(datos)
       {
-        $("div#dataEmploye").empty();
-        $("div#dataEmploye").html(datos);
+        $(obj).siblings("div#dataEmploye").empty();
+        $(obj).siblings("div#dataEmploye").html(datos);
       
       }
   }); 
 }
 
 function search_costumer(obj){
-  var formData = new FormData($("form#formRemision")[0]);
-   var ruta = "CLASS/REM/search_costumer.php";
-    $.ajax({
-      url: ruta,
-      type: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function(datos)
-      {
-        $("div#dataCostumer").empty();
-        $("div#dataCostumer").html(datos);
-      }
+  var formData = new FormData($(obj).parent('div.col-lg-5').parent('div.row').parent('form#formRemision')[0]);
+
+  var ruta = "CLASS/REM/search_costumer.php";
+  $.ajax({
+    url: ruta,
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(datos)
+    {
+      $(obj).siblings("div#dataCostumer").empty();
+      $(obj).siblings("div#dataCostumer").html(datos);
+    }
   }); 
 }
 
-function infoEmploye(){
+
+function save_product(){
   event.preventDefault();
-  var formData = new FormData($("form#formRemision")[0]);
-   var ruta = "gasoline.php";
-    $.ajax({
-      url: ruta,
-      type: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function(datos)
-      {
-      
-      }
-  }); 
-}
-function infoProductos(){
-  event.preventDefault();
-  var formData = new FormData($("form#formProductos")[0]);
-   var ruta = "infoRemision.php";
-    $.ajax({
-      url: ruta,
-      type: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function(datos)
-      {
-      
-      }
-  }); 
-}
 
-function sendRemision(){
-  infoProductos();
-  infoEmploye();
-
-  alert("emviadp");
-
+  var formData = new FormData($("#formProducts")[0]);
+      var ruta = "CLASS/classDriver.php";
+      $.ajax({
+          url: ruta,
+          type: "POST",
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function(datos)
+          {
+            //closeModal();
+            swal("El producto ha sido guardado con exito ", { icon: "success",});
+            $("#formProducts")[0].reset();
+ 
+           
+          }
+      }); 
 }
